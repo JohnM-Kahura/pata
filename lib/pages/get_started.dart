@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pata/pages/login.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
@@ -9,29 +10,71 @@ class GetStarted extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
-          child: Column(
-        children: [
-          // Container(
-          //   height: double.infinity,
-          //   width: double.infinity,
-          //   color: Colors.black.withOpacity(0.7),
-          // ),
-          Column(
-            children: [
-              SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-
-                    Text('Shikisha loan with Goods',style: GoogleFonts.poppins(color: Colors.white,fontWeight: FontWeight.bold),),
-                     Text(
-                        'We solve your financial problemsby giving you a loan after offering an item as colateral')
-                  ],
-                ),
-              )
-            ],
+          child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/background.jpg"),
+            fit: BoxFit.cover,
           ),
-        ],
+        ),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 50,
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Shikisha loan with Goods',
+                          style: GoogleFonts.poppins(
+                              color: Colors.white, fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'We solve your financial problems by giving you a loan after offering an item as collateral',
+                          style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 300,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => Login()));
+              },
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.resolveWith(
+                      (states) => Colors.green)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Get started',
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      // fontSize: 22,
+                      color: Colors.white),
+                ),
+              ),
+            )
+          ],
+        ),
       )),
     );
   }

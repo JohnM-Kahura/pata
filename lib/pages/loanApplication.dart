@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pata/pages/loanStatus.dart';
+import 'package:pata/widgets/customContainer.dart';
 import 'package:pata/widgets/customTextFeild.dart';
 
 
@@ -15,7 +17,9 @@ class _LoanApplicationState extends State<LoanApplication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
     Container(
       margin:const EdgeInsets.only(top: 40),
       width: double.infinity,
@@ -55,17 +59,30 @@ class _LoanApplicationState extends State<LoanApplication> {
             borderRadius: BorderRadius.circular(15),
             border: Border.all(color: Colors.green)),
           child: customTextFeild('')),
-        Container(
-          margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: Colors.green)),
-          ),
+        
+
 
       ],
     ),
+    clientContainer("Loan Duration","One Week",15),
+    clientContainer("20% interest","6000",25),
+    TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => LoanStatus()));
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Colors.green)),
+                    child: Text(
+                      'Submit',
+                      style: GoogleFonts.poppins(
+                          color: Colors.white, fontWeight: FontWeight.w600),
+                    )),
  
       ]),
     );
   }
+
+
 }

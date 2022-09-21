@@ -13,10 +13,59 @@ class LoanStatus extends StatefulWidget {
 
 class _LoanStatusState extends State<LoanStatus> {
   static const bool IsAccepted = true;
+  final GlobalKey<ScaffoldState> _key = GlobalKey(); 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+key: _key,
+      drawer:Drawer(
+        backgroundColor: Colors.white.withOpacity(0.9),
+        width: MediaQuery.of(context).size.width-100,child: Column(children: [
+      
+        Container(
+            margin: const EdgeInsets.only(top: 50),
+            width: double.infinity,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(50)),
+                    child: const Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 40,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'John Doe',
+                      style: GoogleFonts.poppins(
+                          color: Colors.black, fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                ]),
+          ),
+        InkWell(
+          onTap: () { Navigator.of(context).pop();
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoanStatus()));
+          },
+          child: ListTile(title: Text('Loan Status',style: GoogleFonts.poppins(color:Colors.black,fontWeight: FontWeight.w600),),),
+        ),
+        InkWell(
+           onTap: () { Navigator.of(context).pop();
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoanAppeal()));
+          },
+          child: ListTile(title: Text('Loan Appeal',style: GoogleFonts.poppins(color:Colors.black,fontWeight: FontWeight.w600),),),
+        ),
+      ],),),
       appBar: AppBar(
+        leading: IconButton(onPressed: () => _key.currentState?.openDrawer(), icon:Icon(Icons.menu),color: Colors.black,),
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -103,7 +152,7 @@ class _LoanStatusState extends State<LoanStatus> {
           if (IsAccepted == false) clientContainer('Loan Status', "denied", 20),
           if (IsAccepted == false)
             clientContainer('Reason', "Lack of confidential details", 15),
-  
+    
             Column(children: [
               if (IsAccepted == false)
               TextButton(

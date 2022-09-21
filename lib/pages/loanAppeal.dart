@@ -88,7 +88,7 @@ if(appealStatus=='No Appeal')
           if(appealStatus=="Approved")
          clientContainer('Appeal Status', 'Approved', 15),
          if(appealStatus=="Approved")
-          Container(margin: const EdgeInsets.all(10),child: Text('''
+          Container(margin: const EdgeInsets.all(10),child: const Text('''
 you appeal request  has been accepted 
 kindly pay the interest  for approval
  to be verified

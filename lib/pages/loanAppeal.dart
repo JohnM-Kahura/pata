@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/widgets/customContainer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoanAppeal extends StatefulWidget {
   const LoanAppeal({super.key});
@@ -10,6 +11,14 @@ class LoanAppeal extends StatefulWidget {
 }
 
 class _LoanAppealState extends State<LoanAppeal> {
+call(String tel)  async{
+ 
+    try {
+      await launch("tel://$tel",enableJavaScript: true);
+    } catch (_e) {
+      return _e.toString();
+    }
+  }
   String appealStatus="Approved";
   @override
   Widget build(BuildContext context) {
@@ -111,6 +120,45 @@ Container(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
         ),
       )),
+           ),
+           if(appealStatus=='Declined')
+          clientContainer('Appeal Status', 'No appeal request has been sent', 15),
+          if(appealStatus=='Declined')
+          Container(margin: const EdgeInsets.all(10),child: Text('You need to send an appeal request to us',),),
+          if(appealStatus=='Declined')
+          
+          SizedBox(height: MediaQuery.of(context).size.height-420,) ,
+          if(appealStatus=='Declined')
+           Container(
+            margin: const EdgeInsets.all(10),
+             child:Row(children:[
+               TextButton(
+      onPressed: () => call('+254746443944'),
+      style: ButtonStyle(
+          backgroundColor:
+                MaterialStateProperty.resolveWith((states) => Colors.green)),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          'Email US',
+          style: GoogleFonts.poppins(
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+      )),
+       TextButton(
+      onPressed: () => null,
+      style: ButtonStyle(
+          backgroundColor:
+                MaterialStateProperty.resolveWith((states) => Colors.green)),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          'Call',
+          style: GoogleFonts.poppins(
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+      )),
+             ]),
            ),
         ],
       ),

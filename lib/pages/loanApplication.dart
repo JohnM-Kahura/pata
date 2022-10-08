@@ -13,6 +13,7 @@ class LoanApplication extends StatefulWidget {
 }
 
 class _LoanApplicationState extends State<LoanApplication> {
+  TextEditingController amountController=TextEditingController();
   String dropdownValue = 'One week';
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,7 @@ class _LoanApplicationState extends State<LoanApplication> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             border: Border.all(color: Colors.green)),
-          child: customTextFeild('')),
+          child: customTextFeild('',amountController)),
         
 
 

@@ -11,6 +11,10 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  TextEditingController fullnameContorller=TextEditingController();
+  TextEditingController emailController=TextEditingController();
+  TextEditingController passwordController=TextEditingController();
+  TextEditingController password2Controller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,10 +36,10 @@ class _SignUpState extends State<SignUp> {
                       fontSize: 30,
                       fontWeight: FontWeight.w700),
                 ),
-                signUpFeild('Full Name'),
-                signUpFeild('Email'),
-                signUpFeild('Password'),
-                signUpFeild('Confirm Password'),
+                signUpFeild('Full Name',fullnameContorller),
+                signUpFeild('Email',emailController),
+                signUpFeild('Password',passwordController),
+                signUpFeild('Confirm Password',password2Controller),
                 Column(
                   children: [
                     TextButton(
@@ -86,7 +90,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  Column signUpFeild(String title) {
+  Column signUpFeild(String title,TextEditingController controller) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -100,7 +104,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
         ),
-        customTextFeild('')
+        customTextFeild('',controller)
       ],
     );
   }

@@ -14,6 +14,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailController=TextEditingController();
+  TextEditingController passwordController=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,8 +99,8 @@ class _LoginState extends State<Login> {
                     fontWeight: FontWeight.w700,
                     fontSize: 22),
               ),
-              customTextFeild("username"),
-              customTextFeild("password"),
+              customTextFeild("Email",emailController),
+              customTextFeild("password",passwordController),
             ],
           )
         ],

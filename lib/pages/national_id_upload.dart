@@ -1,9 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/cameraPage.dart';
-import 'package:pata/pages/studentIDUpload.dart';
-import 'package:pata/widgets/customButton.dart';
+import 'package:pata/pages/camera_page.dart';
+import 'package:pata/pages/student_id_upload.dart';
+import 'package:pata/widgets/custom_button.dart';
 
 class NationalIDUpload extends StatefulWidget {
   const NationalIDUpload({super.key});
@@ -56,7 +56,7 @@ class _NationalIDUploadState extends State<NationalIDUpload> {
               ),
               TextButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => StudentIDUpload())),
+                      builder: (context) =>const  StudentIDUpload())),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(
                           (states) => Colors.green)),

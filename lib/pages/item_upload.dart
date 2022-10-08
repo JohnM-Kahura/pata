@@ -1,19 +1,18 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/cameraPage.dart';
-import 'package:pata/pages/faceUpload.dart';
-import 'package:pata/widgets/customButton.dart';
+import 'package:pata/pages/camera_page.dart';
+import 'package:pata/pages/national_id_upload.dart';
+import 'package:pata/widgets/custom_button.dart';
 
-class StudentIDUpload extends StatefulWidget {
-  const StudentIDUpload({super.key});
+class ItemUpload extends StatefulWidget {
+  const ItemUpload({super.key});
 
   @override
-  State<StudentIDUpload> createState() => _StudentIDUploadState();
+  State<ItemUpload> createState() => _ItemUploadState();
 }
 
-class _StudentIDUploadState extends State<StudentIDUpload> {
+class _ItemUploadState extends State<ItemUpload> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,7 +25,7 @@ class _StudentIDUploadState extends State<StudentIDUpload> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               customButton("Welcome"),
-              customButton("Upload image of your StudentID"),
+              customButton("Upload image of the item for collateral"),
               GestureDetector(
                 onTap: () async {
                   await availableCameras().then((value) => Navigator.push(
@@ -56,8 +55,8 @@ class _StudentIDUploadState extends State<StudentIDUpload> {
                 ),
               ),
               TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => FaceUpload())),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>const NationalIDUpload())),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(
                           (states) => Colors.green)),

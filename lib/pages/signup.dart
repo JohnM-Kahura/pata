@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/login.dart';
-import 'package:pata/widgets/customTextFeild.dart';
+import 'package:pata/widgets/custom_text_feild.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -45,7 +45,7 @@ class _SignUpState extends State<SignUp> {
                     TextButton(
                         onPressed: () {
                           Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => Login()));
+                              MaterialPageRoute(builder: (context) => const Login()));
                         },
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.resolveWith(
@@ -58,7 +58,7 @@ class _SignUpState extends State<SignUp> {
                     GestureDetector(
                       onTap: () {
                         Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => Login()));
+                            MaterialPageRoute(builder: (context) =>const Login()));
                       },
                       child: RichText(
                         text: TextSpan(

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/studentIDUpload.dart';
+import 'package:pata/pages/student_id_upload.dart';
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription>? cameras;
@@ -93,7 +93,7 @@ class _CameraPageState extends State<CameraPage> {
                   child: TextButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => StudentIDUpload()));
+                          builder: (context) =>const StudentIDUpload() ));
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/itemUpload.dart';
-import 'package:pata/pages/loanAppeal.dart';
-import 'package:pata/widgets/customContainer.dart';
+import 'package:pata/pages/item_upload.dart';
+import 'package:pata/pages/loan_appeal.dart';
+import 'package:pata/widgets/custom_container.dart';
 
 class LoanStatus extends StatefulWidget {
   const LoanStatus({super.key});
@@ -12,7 +12,7 @@ class LoanStatus extends StatefulWidget {
 }
 
 class _LoanStatusState extends State<LoanStatus> {
-  static const bool IsAccepted = true;
+  static const bool isaccepted = true;
   final GlobalKey<ScaffoldState> _key = GlobalKey(); 
   @override
   Widget build(BuildContext context) {
@@ -53,19 +53,19 @@ key: _key,
           ),
         InkWell(
           onTap: () { Navigator.of(context).pop();
-          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoanStatus()));
+          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const LoanStatus()));
           },
           child: ListTile(title: Text('Loan Status',style: GoogleFonts.poppins(color:Colors.black,fontWeight: FontWeight.w600),),),
         ),
         InkWell(
            onTap: () { Navigator.of(context).pop();
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoanAppeal()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const LoanAppeal()));
           },
           child: ListTile(title: Text('Loan Appeal',style: GoogleFonts.poppins(color:Colors.black,fontWeight: FontWeight.w600),),),
         ),
       ],),),
       appBar: AppBar(
-        leading: IconButton(onPressed: () => _key.currentState?.openDrawer(), icon:Icon(Icons.menu),color: Colors.black,),
+        leading: IconButton(onPressed: () => _key.currentState?.openDrawer(), icon: const Icon(Icons.menu),color: Colors.black,),
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -108,13 +108,13 @@ key: _key,
                   ),
                 ]),
           ),
-          if (IsAccepted == true)
+          if (isaccepted == true)
             clientContainer("Loan Status", "Accepted", 20),
-          if (IsAccepted == true)
+          if (isaccepted == true)
             clientContainer("LOAN", "Being Processed", 20),
-          if (IsAccepted == true)
+          if (isaccepted == true)
             clientContainer("Amount to disbursed", "6k", 20),
-          if (IsAccepted == true)
+          if (isaccepted == true)
             Container(
               margin: const EdgeInsets.all(10),
               child: Row(
@@ -123,7 +123,7 @@ key: _key,
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => LoanAppeal()));
+                            builder: (context) => const LoanAppeal()));
                       },
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.resolveWith(
@@ -136,7 +136,7 @@ key: _key,
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => ItemUpload()));
+                            builder: (context) => const ItemUpload()));
                       },
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.resolveWith(
@@ -149,16 +149,16 @@ key: _key,
                 ],
               ),
             ),
-          if (IsAccepted == false) clientContainer('Loan Status', "denied", 20),
-          if (IsAccepted == false)
+          if (isaccepted == false) clientContainer('Loan Status', "denied", 20),
+          if (isaccepted == false)
             clientContainer('Reason', "Lack of confidential details", 15),
     
             Column(children: [
-              if (IsAccepted == false)
+              if (isaccepted == false)
               TextButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => ItemUpload()));
+                    MaterialPageRoute(builder: (context) => const ItemUpload()));
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith(

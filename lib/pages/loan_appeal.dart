@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/widgets/customContainer.dart';
+import 'package:pata/widgets/custom_container.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LoanAppeal extends StatefulWidget {
@@ -15,8 +15,8 @@ call(String tel)  async{
  
     try {
       await launch("tel://$tel",enableJavaScript: true);
-    } catch (_e) {
-      return _e.toString();
+    } catch (e) {
+      return e.toString();
     }
   }
   String appealStatus="Approved";
@@ -69,7 +69,7 @@ call(String tel)  async{
 if(appealStatus=='No Appeal')
           clientContainer('Appeal Status', 'No appeal request has been sent', 15),
           if(appealStatus=='No Appeal')
-          Container(margin: const EdgeInsets.all(10),child: Text('You need to send an appeal request to us',),),
+          Container(margin: const EdgeInsets.all(10),child:const Text('You need to send an appeal request to us',),),
           if(appealStatus=='No Appeal')
           
           SizedBox(height: MediaQuery.of(context).size.height-420,) ,
@@ -108,7 +108,7 @@ kindly pay the interest  for approval
 Container(
             margin: const EdgeInsets.all(10),
              child: TextButton(
-      onPressed: () =>null,
+      onPressed: () {},
       style: ButtonStyle(
           backgroundColor:
                 MaterialStateProperty.resolveWith((states) => Colors.green)),
@@ -124,7 +124,7 @@ Container(
            if(appealStatus=='Declined')
           clientContainer('Appeal Status', 'No appeal request has been sent', 15),
           if(appealStatus=='Declined')
-          Container(margin: const EdgeInsets.all(10),child: Text('You need to send an appeal request to us',),),
+          Container(margin: const EdgeInsets.all(10),child:const Text('You need to send an appeal request to us',),),
           if(appealStatus=='Declined')
           
           SizedBox(height: MediaQuery.of(context).size.height-420,) ,
@@ -146,7 +146,7 @@ Container(
         ),
       )),
        TextButton(
-      onPressed: () => null,
+      onPressed: () {},
       style: ButtonStyle(
           backgroundColor:
                 MaterialStateProperty.resolveWith((states) => Colors.green)),

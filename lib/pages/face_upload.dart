@@ -1,9 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/cameraPage.dart';
-import 'package:pata/pages/loanApplication.dart';
-import 'package:pata/widgets/customButton.dart';
+import 'package:pata/pages/camera_page.dart';
+import 'package:pata/pages/loan_application.dart';
+import 'package:pata/widgets/custom_button.dart';
 
 class FaceUpload extends StatefulWidget {
   const FaceUpload({super.key});
@@ -56,7 +56,7 @@ class _FaceUploadState extends State<FaceUpload> {
               ),
               TextButton(
                   onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => LoanApplication())),
+                      builder: (context) =>const LoanApplication())),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(
                           (states) => Colors.green)),

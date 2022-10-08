@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/search.dart';
 import 'package:pata/pages/signup.dart';
 
-import '../widgets/customTextFeild.dart';
+import '../widgets/custom_text_feild.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
                 TextButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => Searchpage()));
+                          builder: (context) =>const Searchpage()));
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith(
@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => SignUp()));
+                        MaterialPageRoute(builder: (context) =>const SignUp()));
                   },
                   child: RichText(
                     text: TextSpan(

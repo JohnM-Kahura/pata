@@ -57,7 +57,7 @@ class GetStarted extends StatelessWidget {
             TextButton(
               onPressed: () {
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => Login()));
+                    MaterialPageRoute(builder: (context) =>const Login()));
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith(

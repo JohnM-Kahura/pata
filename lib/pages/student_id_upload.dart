@@ -1,18 +1,19 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/cameraPage.dart';
-import 'package:pata/pages/nationalIDUpload.dart';
-import 'package:pata/widgets/customButton.dart';
 
-class ItemUpload extends StatefulWidget {
-  const ItemUpload({super.key});
+import 'package:google_fonts/google_fonts.dart';
+import 'package:pata/pages/camera_page.dart';
+import 'package:pata/pages/face_upload.dart';
+import 'package:pata/widgets/custom_button.dart';
+
+class StudentIDUpload extends StatefulWidget {
+  const StudentIDUpload({super.key});
 
   @override
-  State<ItemUpload> createState() => _ItemUploadState();
+  State<StudentIDUpload> createState() => _StudentIDUploadState();
 }
 
-class _ItemUploadState extends State<ItemUpload> {
+class _StudentIDUploadState extends State<StudentIDUpload> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,7 +26,7 @@ class _ItemUploadState extends State<ItemUpload> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               customButton("Welcome"),
-              customButton("Upload image of the item for collateral"),
+              customButton("Upload image of your StudentID"),
               GestureDetector(
                 onTap: () async {
                   await availableCameras().then((value) => Navigator.push(
@@ -55,8 +56,8 @@ class _ItemUploadState extends State<ItemUpload> {
                 ),
               ),
               TextButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => NationalIDUpload())),
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) =>const FaceUpload())),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(
                           (states) => Colors.green)),

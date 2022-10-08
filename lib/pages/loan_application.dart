@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/loanStatus.dart';
-import 'package:pata/widgets/customContainer.dart';
-import 'package:pata/widgets/customTextFeild.dart';
+import 'package:pata/pages/loan_status.dart';
+import 'package:pata/widgets/custom_container.dart';
+import 'package:pata/widgets/custom_text_feild.dart';
 
 
 class LoanApplication extends StatefulWidget {
@@ -70,7 +70,7 @@ class _LoanApplicationState extends State<LoanApplication> {
     TextButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => LoanStatus()));
+                          builder: (context) => const LoanStatus()));
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith(

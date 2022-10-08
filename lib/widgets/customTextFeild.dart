@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-Container customTextFeild(String hintText) {
+Container customTextFeild(String hintText ,TextEditingController controller) {
   return Container(
     margin: const EdgeInsets.all(10),
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(15)),
     child: TextField(
-      onChanged: (value) {
-        //Do something with the user input.
-      },
+     controller: controller,
       cursorColor: Colors.green,
       decoration: InputDecoration(
         hintText: hintText,

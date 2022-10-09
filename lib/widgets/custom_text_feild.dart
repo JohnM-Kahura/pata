@@ -10,6 +10,7 @@ Container customTextFeild(String hintText ,TextEditingController controller) {
       cursorColor: Colors.green,
       decoration: InputDecoration(
         hintText: hintText,
+      
         contentPadding:
             const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
         border: const OutlineInputBorder(

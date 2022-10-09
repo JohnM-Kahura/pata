@@ -16,6 +16,14 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordController=TextEditingController();
   TextEditingController password2Controller=TextEditingController();
   @override
+  void dispose() {
+    fullnameContorller.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    password2Controller.dispose();
+    super.dispose();
+  }
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
@@ -55,7 +56,9 @@ class GetStarted extends StatelessWidget {
               height: MediaQuery.of(context).size.height - 300,
             ),
             TextButton(
-              onPressed: () {
+              onPressed: () async{
+                final prefs= await SharedPreferences.getInstance();
+                prefs.setBool("showGetStarted", false);
                 Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) =>const Login()));
               },

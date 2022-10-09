@@ -46,30 +46,39 @@ class _LoginState extends State<Login> {
                       style: GoogleFonts.poppins(
                           color: Colors.white, fontWeight: FontWeight.w600),
                     )),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) =>const SignUp()));
-                  },
-                  child: RichText(
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                            text: "Don't have an account ?",
-                            style: GoogleFonts.lato(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 30)),
-                        TextSpan(
-                            text: 'sign up',
-                            style: GoogleFonts.lato(
-                                color: Colors.green,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 30))
-                      ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) =>const SignUp()));
+                      },
+                      child: RichText(
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: "Don't have an account ?",
+                                style: GoogleFonts.lato(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30)),
+                            TextSpan(
+                                text: 'sign up',
+                                style: GoogleFonts.lato(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30))
+                          ],
+                        ),
+                        textScaleFactor: 0.5,
+                      ),
                     ),
-                    textScaleFactor: 0.5,
-                  ),
+                    Text('Forgot password?',style: GoogleFonts.lato(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.w600,
+                                    ))
+                  ],
                 ),
               ],
             )

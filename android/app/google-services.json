@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "858739015011",
+    "project_id": "pata-f9bae",
+    "storage_bucket": "pata-f9bae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858739015011:android:383f71e6506eab64072756",
+        "android_client_info": {
+          "package_name": "com.example.pata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858739015011-2qda1ehamtt7ho0commvjf1upi5u53cr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTyzLf6W8kSHKaWwBAflQU9-Gtwe1P63s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858739015011-2qda1ehamtt7ho0commvjf1upi5u53cr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

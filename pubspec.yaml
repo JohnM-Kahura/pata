@@ -39,6 +39,8 @@ dependencies:
   google_fonts: ^3.0.1
   camera: ^0.10.0+1
   url_launcher: ^6.1.5
+  cloud_firestore: ^3.5.1
+  firebase_core: ^1.24.0
   
 
 dev_dependencies:

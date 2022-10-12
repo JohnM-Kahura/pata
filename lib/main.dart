@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey:utils.messengerKey,
-      title: 'pata',
+      title: 'Shikisha Loans',
       theme: ThemeData(
         
         primarySwatch: Colors.blue,

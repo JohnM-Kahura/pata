@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/loan_status.dart';
-import 'package:pata/pages/search.dart';
 import 'package:pata/pages/signup.dart';
 
 import '../widgets/custom_text_feild.dart';
@@ -38,7 +37,7 @@ class _LoginState extends State<Login> {
       }on FirebaseAuth catch(e) {
         print('*******************');
         print('The error is');
-print(e);
+        print(e);
       }
       }
     }

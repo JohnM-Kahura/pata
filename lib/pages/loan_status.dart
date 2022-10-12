@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/item_upload.dart';
 import 'package:pata/pages/loan_appeal.dart';
-import 'package:pata/pages/login.dart';
+import 'package:pata/auth/login.dart';
 import 'package:pata/widgets/custom_container.dart';
 
 class LoanStatus extends StatefulWidget {
@@ -124,107 +124,109 @@ class _LoanStatusState extends State<LoanStatus> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(50)),
-                    child: const Icon(
-                      Icons.person,
-                      color: Colors.white,
-                      size: 40,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      'John Doe',
-                      style: GoogleFonts.poppins(
-                          color: Colors.black, fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                ]),
-          ),
-          if (isaccepted == true)
-            clientContainer("Loan Status", "Accepted", 20),
-          if (isaccepted == true)
-            clientContainer("LOAN", "Being Processed", 20),
-          if (isaccepted == true)
-            clientContainer("Amount to disbursed", "6k", 20),
-          if (isaccepted == true)
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
             Container(
-              margin: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const LoanAppeal()));
-                      },
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith(
-                              (states) => Colors.green)),
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(50)),
+                      child: const Icon(
+                        Icons.person,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'Appeal Loan',
+                        'John Doe',
                         style: GoogleFonts.poppins(
-                            color: Colors.white, fontWeight: FontWeight.w600),
-                      )),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const ItemUpload()));
-                      },
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.resolveWith(
-                              (states) => Colors.green)),
-                      child: Text(
-                        'New Application',
-                        style: GoogleFonts.poppins(
-                            color: Colors.white, fontWeight: FontWeight.w600),
-                      )),
-                ],
-              ),
+                            color: Colors.black, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ]),
             ),
-          if (isaccepted == false) clientContainer('Loan Status', "denied", 20),
-          if (isaccepted == false)
-            clientContainer('Reason', "Lack of confidential details", 15),
-          Column(
-            children: [
-              if (isaccepted == false)
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const ItemUpload()));
-                  },
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) => Colors.white)),
-                  child: Text(
-                    'Try Again',
-                    style: GoogleFonts.poppins(
-                        color: Colors.black, fontWeight: FontWeight.w600),
-                  ),
+            if (isaccepted == true)
+              clientContainer("Loan Status", "Accepted", 20),
+            if (isaccepted == true)
+              clientContainer("LOAN", "Being Processed", 20),
+            if (isaccepted == true)
+              clientContainer("Amount to disbursed", "6k", 20),
+            if (isaccepted == true)
+              Container(
+                margin: const EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                              builder: (context) => const LoanAppeal()));
+                        },
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.resolveWith(
+                                (states) => Colors.green)),
+                        child: Text(
+                          'Appeal Loan',
+                          style: GoogleFonts.poppins(
+                              color: Colors.white, fontWeight: FontWeight.w600),
+                        )),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(
+                              builder: (context) => const ItemUpload()));
+                        },
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.resolveWith(
+                                (states) => Colors.green)),
+                        child: Text(
+                          'New Application',
+                          style: GoogleFonts.poppins(
+                              color: Colors.white, fontWeight: FontWeight.w600),
+                        )),
+                  ],
                 ),
-              Text(
-                "welcome  back to shikisha loan",
-                style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w700, color: Colors.green),
-              )
-            ],
-          )
-        ],
+              ),
+            if (isaccepted == false) clientContainer('Loan Status', "denied", 20),
+            if (isaccepted == false)
+              clientContainer('Reason', "Lack of confidential details", 15),
+            Column(
+              children: [
+                if (isaccepted == false)
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const ItemUpload()));
+                    },
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                            (states) => Colors.white)),
+                    child: Text(
+                      'Try Again',
+                      style: GoogleFonts.poppins(
+                          color: Colors.black, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                Text(
+                  "welcome  back to shikisha loan",
+                  style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w700, color: Colors.green),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

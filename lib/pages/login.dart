@@ -16,6 +16,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final formKey=GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isemailempty = false;
@@ -64,7 +65,7 @@ print(e);
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              loginContainer(),
+              loginContainer(formKey),
               Column(
                 children: [
                   TextButton(
@@ -145,7 +146,7 @@ print(e);
     );
   }
 
-  Container loginContainer() {
+  Container loginContainer(GlobalKey formKey) {
     return Container(
       margin: const EdgeInsets.all(20),
       height: 200,
@@ -155,19 +156,22 @@ print(e);
           borderRadius: BorderRadius.circular(20)),
       child: Stack(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'User Login',
-                style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 22),
-              ),
-              customTextFeild("Email", emailController),
-              customTextFeild("password", passwordController),
-            ],
+          Form(
+            key: formKey ,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'User Login',
+                  style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 22),
+                ),
+                customTextFeild("Email", emailController),
+                customTextFeild("password", passwordController),
+              ],
+            ),
           )
         ],
       ),

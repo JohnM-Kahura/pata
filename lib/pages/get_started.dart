@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/login.dart';
+import 'package:pata/auth/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GetStarted extends StatelessWidget {

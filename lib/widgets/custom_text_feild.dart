@@ -5,7 +5,7 @@ Container customTextFeild(String hintText ,TextEditingController controller) {
     margin: const EdgeInsets.all(10),
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(15)),
-    child: TextField(
+    child: TextFormField(
      controller: controller,
       cursorColor: Colors.green,
       decoration: InputDecoration(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/auth/forgot_password.dart';
-import 'package:pata/pages/loan_status.dart';
+import 'package:pata/pages/LoanStatus/loan_status.dart';
 import 'package:pata/auth/signup.dart';
 import 'package:pata/utils/utils.dart';
 
@@ -24,15 +24,8 @@ class _LoginState extends State<Login> {
   bool ispasswordempty = false;
   Utils utils=Utils();
   Future signIn() async {
-    if (emailController.text.isEmpty) {
-      setState(() {
-        isemailempty = true;
-      });
-      if (passwordController.text.isEmpty) {
-        setState(() {
-          ispasswordempty = true;
-        });
-      try{
+  
+     try{
           await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: emailController.text.trim(),
             password: passwordController.text.trim());
@@ -42,8 +35,6 @@ class _LoginState extends State<Login> {
         print(e);
 utils.showSnackBar(e.message);
       }
-      }
-    }
   }
 
   @override

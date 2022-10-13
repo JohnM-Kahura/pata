@@ -43,7 +43,7 @@ class _SignUpState extends State<SignUp> {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            height: double.infinity,
+            height:MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/auth.jpg"),
@@ -60,14 +60,16 @@ class _SignUpState extends State<SignUp> {
                       fontSize: 30,
                       fontWeight: FontWeight.w700),
                 ),
-                signUpFeild('Full Name', fullnameContorller),
+                // signUpFeild('Full Name', fullnameContorller),
                 signUpFeild('Email', emailController),
                 signUpFeild('Password', passwordController),
                 signUpFeild('Confirm Password', password2Controller),
                 Column(
                   children: [
                     TextButton(
-                        onPressed: () {
+                        onPressed: ()async {
+                          await signup();
+                          
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (context) => const Login()));

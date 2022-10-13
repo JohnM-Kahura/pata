@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/item_upload.dart';
+import 'package:pata/pages/Loan%20Application/item_upload.dart';
 import 'package:pata/widgets/customsearchbar.dart';
 
 class Searchpage extends StatefulWidget {

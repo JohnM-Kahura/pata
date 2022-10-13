@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/item_upload.dart';
-import 'package:pata/pages/loan_appeal.dart';
+import 'package:pata/pages/Loan%20Application/item_upload.dart';
+import 'package:pata/pages/Loan%20Application/loan_appeal.dart';
 import 'package:pata/auth/login.dart';
 import 'package:pata/widgets/custom_container.dart';
 

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/student_id_upload.dart';
+import 'package:pata/pages/Loan%20Application/student_id_upload.dart';
 
 class CameraPage extends StatefulWidget {
   final List<CameraDescription>? cameras;

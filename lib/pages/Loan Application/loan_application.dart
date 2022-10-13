@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/loan_status.dart';
+import 'package:pata/pages/LoanStatus/loan_status.dart';
 import 'package:pata/widgets/custom_container.dart';
 import 'package:pata/widgets/custom_text_feild.dart';
 

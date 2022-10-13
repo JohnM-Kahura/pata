@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // the main page is just a wrapper so I can decide if there is a user on the device or not
-      home:showGetStarted==true? const GetStarted():const Login(),
+      home:showGetStarted==true? const GetStarted():const MainPage(),
     );
   }
 }

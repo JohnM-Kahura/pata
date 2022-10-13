@@ -16,7 +16,7 @@ class LoanStatus extends StatefulWidget {
 class _LoanStatusState extends State<LoanStatus> {
   static const bool isaccepted = true;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  // final user=FirebaseAuth.instance.currentUser!;
+  final user=FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +49,8 @@ class _LoanStatusState extends State<LoanStatus> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        // user.uid,
-                        '',
+                        user.email??'No username found',
+                        // '',
                         style: GoogleFonts.poppins(
                             color: Colors.black, fontWeight: FontWeight.w700),
                       ),
@@ -150,7 +150,7 @@ class _LoanStatusState extends State<LoanStatus> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        'John Doe',
+                        user.email??'John Doe',
                         style: GoogleFonts.poppins(
                             color: Colors.black, fontWeight: FontWeight.w700),
                       ),
@@ -198,7 +198,8 @@ class _LoanStatusState extends State<LoanStatus> {
                   ],
                 ),
               ),
-            if (isaccepted == false) clientContainer('Loan Status', "denied", 20),
+            if (isaccepted == false) 
+            clientContainer('Loan Status', "denied", 20),
             if (isaccepted == false)
               clientContainer('Reason', "Lack of confidential details", 15),
             Column(
@@ -206,7 +207,7 @@ class _LoanStatusState extends State<LoanStatus> {
                 if (isaccepted == false)
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const ItemUpload()));
                     },
                     style: ButtonStyle(

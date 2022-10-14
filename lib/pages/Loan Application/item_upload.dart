@@ -55,8 +55,10 @@ class _ItemUploadState extends State<ItemUpload> {
                 ),
               ),
               TextButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>const NationalIDUpload())),
+                  onPressed: ()async{
+                     Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>const NationalIDUpload()));
+                  },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(
                           (states) => Colors.green)),

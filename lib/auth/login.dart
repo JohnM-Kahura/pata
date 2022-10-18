@@ -17,24 +17,32 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final formKey=GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isemailempty = false;
   bool ispasswordempty = false;
-  Utils utils=Utils();
+  Utils utils = Utils();
   Future signIn() async {
-  
-     try{
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim());
-      }on FirebaseAuthException catch(e) {
-        print('*******************');
-        print('The error is');
-        print(e);
-utils.showSnackBar(e.message);
-      }
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+          return 1;
+    } on FirebaseAuthException catch (e) {
+      print('*******************');
+      print('The error is');
+      print(e);
+      // utils.showSnackBar(e.message);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          e.message ?? 'An error occured please try agin later',
+          style: GoogleFonts.poppins(color: Colors.white),
+        ),
+        backgroundColor: Colors.red,
+      ));
+      return 0;
+    }
   }
 
   @override
@@ -53,24 +61,40 @@ utils.showSnackBar(e.message);
           image: DecorationImage(
             image: AssetImage("assets/auth.jpg"),
             fit: BoxFit.cover,
-            
           ),
         ),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-             const  SizedBox(height: 50,),
+              const SizedBox(
+                height: 50,
+              ),
               loginContainer(formKey),
               Column(
                 children: [
                   TextButton(
                       onPressed: () async {
-                        await signIn();
-                        print(emailController.text);
-                        print(passwordController.text);
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const LoanStatus()));
+                        if (emailController.text.isEmpty ||
+                            passwordController.text.isEmpty) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            
+                            content: Text(
+                              'Fill all of the feilds above',
+                              style: GoogleFonts.poppins(color: Colors.white),
+                            ),
+                            backgroundColor: Colors.red,
+                          ));
+                        } else {
+                         var success=await signIn();
+                          if(success==1){
+                            Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                                  builder: (context) => const LoanStatus()));
+                          }else{
+
+                          }
+                        }
                       },
                       style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.resolveWith(
@@ -105,7 +129,9 @@ utils.showSnackBar(e.message);
                       textScaleFactor: 0.5,
                     ),
                   ),
-                  const SizedBox(height: 50,),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -154,7 +180,7 @@ utils.showSnackBar(e.message);
       child: Stack(
         children: [
           Form(
-            key: formKey ,
+            key: formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [

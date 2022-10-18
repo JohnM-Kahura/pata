@@ -109,24 +109,27 @@ class _LoginState extends State<Login> {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const SignUp()));
                     },
-                    child: RichText(
-                      text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: "Don't have an account ?",
-                              style: GoogleFonts.lato(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 30)),
-                          TextSpan(
-                              text: 'sign up',
-                              style: GoogleFonts.lato(
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 30))
-                        ],
+                    child: SizedBox(
+                      height: 50,
+                      child: RichText(
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: "Don't have an account ?",
+                                style: GoogleFonts.lato(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30)),
+                            TextSpan(
+                                text: 'sign up',
+                                style: GoogleFonts.lato(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30))
+                          ],
+                        ),
+                        textScaleFactor: 0.5,
                       ),
-                      textScaleFactor: 0.5,
                     ),
                   ),
                   const SizedBox(

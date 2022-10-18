@@ -116,24 +116,27 @@ ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => const Login()));
                     },
-                    child: RichText(
-                      text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: "Already have an account ?",
-                              style: GoogleFonts.lato(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 30)),
-                          TextSpan(
-                              text: 'sign in',
-                              style: GoogleFonts.lato(
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 30))
-                        ],
+                    child: SizedBox(
+                      height: 50,
+                      child: RichText(
+                        text: TextSpan(
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: "Already have an account ?",
+                                style: GoogleFonts.lato(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30)),
+                            TextSpan(
+                                text: 'sign in',
+                                style: GoogleFonts.lato(
+                                    color: Colors.green,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 30))
+                          ],
+                        ),
+                        textScaleFactor: 0.5,
                       ),
-                      textScaleFactor: 0.5,
                     ),
                   ),
                 ],

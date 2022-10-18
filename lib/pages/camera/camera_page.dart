@@ -50,14 +50,18 @@ class _CameraPageState extends State<CameraPage> {
         title: const Text('Take picture'),
         centerTitle: true,
         backgroundColor: Colors.green,
+        elevation: 0,
       ),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.green),
+                  ),
               margin: const EdgeInsets.symmetric(horizontal: 10),
-              height: 200,
+              height: 400,
               width: double.infinity,
               child: CameraPreview(controller),
             ),
@@ -93,7 +97,7 @@ class _CameraPageState extends State<CameraPage> {
                   child: TextButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>const StudentIDUpload() ));
+                          builder: (context) => const StudentIDUpload()));
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith(

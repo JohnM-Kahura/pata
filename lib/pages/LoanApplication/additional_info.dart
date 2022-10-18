@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/LoanApplication/item_upload.dart';
@@ -15,6 +17,17 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
   TextEditingController fullnameController=TextEditingController();
   TextEditingController schoolIDController= TextEditingController();
   TextEditingController nationalIDController=TextEditingController();
+  TextEditingController mobileController=TextEditingController();
+  Future uploadData(String name,String schoolID,String nationalID,String mobileNumber)async{
+   try{
+     User? user =FirebaseAuth.instance.currentUser;
+    CollectionReference collectionReference=FirebaseFirestore.instance.collection('Users');
+    collectionReference.doc(user!.email).collection('User Info').add({"name":name,"School_ID":schoolID,"National_ID":nationalID,"Phone":mobileNumber});
+   }on FirebaseException catch(e){
+ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message??'An Error Occured During Saving of the data please check internet connection')));
+   }
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +43,7 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
               Column(children: [
             
                 signUpFeild('Full Name', fullnameController),
+                signUpFeild('Mobile Number', mobileController),
                 signUpFeild('School ID', schoolIDController),
                 signUpFeild('National ID', nationalIDController),
               ],),

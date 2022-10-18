@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'Shikisha Loans',
       theme: ThemeData(
         
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       // the main page is just a wrapper so I can decide if there is a user on the device or not
       home:showGetStarted==true? const GetStarted():const MainPage(),

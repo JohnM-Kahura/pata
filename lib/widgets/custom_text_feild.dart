@@ -6,6 +6,11 @@ Container customTextFeild(String hintText ,TextEditingController controller) {
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(15)),
     child: TextFormField(
+      validator: (value){
+        if(value!.isEmpty){
+              return "$hintText field Cannot be empty";
+        }
+      },
      controller: controller,
       cursorColor: Colors.green,
       decoration: InputDecoration(

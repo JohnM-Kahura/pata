@@ -23,8 +23,16 @@ class _SignUpState extends State<SignUp> {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text);
+           return 1;
     } on FirebaseAuthException catch (e) {
-      utils.showSnackBar(e.message);
+     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          e.message ?? 'An error occured please try agin later',
+          style: GoogleFonts.poppins(color: Colors.white),
+        ),
+        backgroundColor: Colors.red,
+      ));
+      return 0;
     }
   }
 
@@ -39,78 +47,98 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Container(
-            height:MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/auth.jpg"),
-                fit: BoxFit.cover,
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          height:MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/auth.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            children: [
+              const SizedBox(height: 50,),
+              Text(
+                'Create Account',
+                style: GoogleFonts.lato(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700),
               ),
-            ),
-            child: Column(
-              children: [
-                const SizedBox(height: 50,),
-                Text(
-                  'Create Account',
-                  style: GoogleFonts.lato(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700),
-                ),
-                // signUpFeild('Full Name', fullnameContorller),
-                signUpFeild('Email', emailController),
-                signUpFeild('Password', passwordController),
-                signUpFeild('Confirm Password', password2Controller),
-                Column(
-                  children: [
-                    TextButton(
-                        onPressed: ()async {
-                          await signup();
+              // signUpFeild('Full Name', fullnameContorller),
+              signUpFeild('Email', emailController),
+              signUpFeild('Password', passwordController),
+              
+              Column(
+                children: [
+                  TextButton(
+                      onPressed: ()async {
+                          if (emailController.text.isEmpty ||
+                          passwordController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (context) => const Login()));
-                        },
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith(
-                                (states) => Colors.green)),
-                        child: Text(
-                          'Sign Up',
-                          style: GoogleFonts.poppins(
-                              color: Colors.white, fontWeight: FontWeight.w600),
-                        )),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => const Login()));
+                          content: Text(
+                            'Fill all of the feilds above',
+                            style: GoogleFonts.poppins(color: Colors.white),
+                          ),
+                          backgroundColor: Colors.red,
+                        ));
+                      } else {
+                       var success=await signup();
+                        if(success==1){
+                          Navigator.of(context)
+                            .pushReplacement(MaterialPageRoute(
+                                builder: (context) => const Login()));
+                        }else{
+ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(
+        'Something Went Wrong Check your credentials and try again',
+        style: GoogleFonts.poppins(color: Colors.white),
+      ),
+      backgroundColor: Colors.red,
+    ));
+                        }
+                      }
+                        
                       },
-                      child: RichText(
-                        text: TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: "Already have an account ?",
-                                style: GoogleFonts.lato(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 30)),
-                            TextSpan(
-                                text: 'sign in',
-                                style: GoogleFonts.lato(
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 30))
-                          ],
-                        ),
-                        textScaleFactor: 0.5,
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.resolveWith(
+                              (states) => Colors.green)),
+                      child: Text(
+                        'Sign Up',
+                        style: GoogleFonts.poppins(
+                            color: Colors.white, fontWeight: FontWeight.w600),
+                      )),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const Login()));
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(
+                              text: "Already have an account ?",
+                              style: GoogleFonts.lato(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 30)),
+                          TextSpan(
+                              text: 'sign in',
+                              style: GoogleFonts.lato(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 30))
+                        ],
                       ),
+                      textScaleFactor: 0.5,
                     ),
-                  ],
-                )
-              ],
-            ),
+                  ),
+                ],
+              )
+            ],
           ),
         ),
       ),

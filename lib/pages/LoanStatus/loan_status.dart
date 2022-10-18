@@ -1,10 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/Loan%20Application/item_upload.dart';
-import 'package:pata/pages/Loan%20Application/loan_appeal.dart';
+import 'package:pata/pages/LoanApplication/item_upload.dart';
+import 'package:pata/pages/LoanApplication/loan_appeal.dart';
+import 'package:pata/pages/LoanApplication/additional_info.dart';
 import 'package:pata/auth/login.dart';
 import 'package:pata/widgets/custom_container.dart';
+
 
 class LoanStatus extends StatefulWidget {
   const LoanStatus({super.key});
@@ -185,7 +187,7 @@ class _LoanStatusState extends State<LoanStatus> {
                     TextButton(
                         onPressed: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(
-                              builder: (context) => const ItemUpload()));
+                              builder: (context) => const MoreUserInfo()));
                         },
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.resolveWith(

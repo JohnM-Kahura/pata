@@ -63,10 +63,14 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
             children: [
               Column(
                 children: [
-                  signUpFeild('Full Name', fullnameController,TextInputType.text),
-                  signUpFeild('Mobile Number', mobileController,TextInputType.phone),
-                  signUpFeild('School ID', schoolIDController,TextInputType.text),
-                  signUpFeild('National ID', nationalIDController,TextInputType.number),
+                  signUpFeild(
+                      'Full Name', fullnameController, TextInputType.text),
+                  signUpFeild(
+                      'Mobile Number', mobileController, TextInputType.phone),
+                  signUpFeild(
+                      'School ID', schoolIDController, TextInputType.text),
+                  signUpFeild('National ID', nationalIDController,
+                      TextInputType.number),
                 ],
               ),
               Column(
@@ -87,7 +91,12 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
                           schoolIDController.text.trim(),
                           nationalIDController.text.trim(),
                           mobileController.text.trim());
-                      if (response == 0) {
+                      if (response == 0 &&
+                          fullnameController.text.isNotEmpty &&
+                          fullnameController.text.isNotEmpty&&
+                          schoolIDController.text.isNotEmpty&&
+                          nationalIDController.text.isNotEmpty
+                          ) {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const ItemUpload()));
                       }
@@ -121,7 +130,8 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
     );
   }
 
-  Column signUpFeild(String title, TextEditingController controller,TextInputType keyboardType) {
+  Column signUpFeild(String title, TextEditingController controller,
+      TextInputType keyboardType) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -140,7 +150,7 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
               border: Border.all(color: Colors.green),
               borderRadius: BorderRadius.circular(20),
             ),
-            child: customTextFeild('', controller,keyboardType))
+            child: customTextFeild('', controller, keyboardType))
       ],
     );
   }

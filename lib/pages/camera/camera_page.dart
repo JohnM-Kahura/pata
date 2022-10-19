@@ -1,10 +1,7 @@
 import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:pata/pages/LoanApplication/student_id_upload.dart';
-
 class CameraPage extends StatefulWidget {
   final List<CameraDescription>? cameras;
   const CameraPage({super.key, this.cameras});

@@ -23,8 +23,10 @@ class _MoreUserInfoState extends State<MoreUserInfo> {
      User? user =FirebaseAuth.instance.currentUser;
     CollectionReference collectionReference=FirebaseFirestore.instance.collection('Users');
     collectionReference.doc(user!.email).collection('User Info').add({"name":name,"School_ID":schoolID,"National_ID":nationalID,"Phone":mobileNumber});
+   return 0;
    }on FirebaseException catch(e){
-ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message??'An Error Occured During Saving of the data please check internet connection')));
+ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message??'An Error Occured During Saving of the data please check internet connection'),backgroundColor:Colors.red));
+   return 1;
    }
 
   }
@@ -50,8 +52,18 @@ ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message??'An
               Column(
                 children: [
                   TextButton(
-          onPressed: () {
+          onPressed: () async {
+            if(fullnameController.text.isEmpty||mobileController.text.isEmpty||schoolIDController.text.isEmpty
+            ||nationalIDController.text.isEmpty){
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Ensure all the text feilds have been feild"),backgroundColor:Colors.red));
+            }
+            var response=await uploadData(fullnameController.text.trim(), schoolIDController.text.trim(), nationalIDController.text.trim(), mobileController.text.trim());
+            if(response==0){
+
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const ItemUpload()));
+            }if(response==1){
+             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Something went wrong please try again"),backgroundColor:Colors.red)); 
+            }
           },
           style: ButtonStyle(
                   backgroundColor:

@@ -35,7 +35,7 @@ class _LoanApplicationState extends State<LoanApplication> {
     try {
       CollectionReference collectionReference =
           FirebaseFirestore.instance.collection('Users');
-      collectionReference.doc(user!.email).collection('Loans').add({
+      collectionReference.doc(user!.email).collection('Loans').doc('current loan').set({
         "Loan Amount": loanAmount,
         "To pay": toPay,
         "Application Date": DateTime.now(),

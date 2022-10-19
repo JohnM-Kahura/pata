@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class CameraPage extends StatefulWidget {
   final List<CameraDescription>? cameras;
   const CameraPage({super.key, this.cameras});
@@ -13,6 +15,20 @@ class CameraPage extends StatefulWidget {
 class _CameraPageState extends State<CameraPage> {
   late CameraController controller;
   XFile? pictureFile;
+  Future upLoadImage(XFile file) async {
+    if (file == null) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'Make sure to take an image of the collateral',
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.red));
+    }
+    
+    final destination='files/image1';
+    
+  }
+
   @override
   void initState() {
     super.initState();
@@ -55,8 +71,8 @@ class _CameraPageState extends State<CameraPage> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(color: Colors.green),
-                  ),
+                border: Border.all(color: Colors.green),
+              ),
               margin: const EdgeInsets.symmetric(horizontal: 10),
               height: 400,
               width: double.infinity,

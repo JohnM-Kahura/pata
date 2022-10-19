@@ -1,5 +1,3 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +21,10 @@ class _LoanApplicationState extends State<LoanApplication> {
   int getAmountWithIntrest(String amount) {
     if (amount.isNotEmpty) {
       int amount_int = int.parse(amount);
-      int interest = amount_int * 0.20.truncate();
+      double interest_double = amount_int * 0.20;
+      int interest=interest_double.truncate();
+      print(interest);
+      print(amount_int+interest);
       return amount_int + interest;
     } else {
       return 0;
@@ -121,6 +122,7 @@ class _LoanApplicationState extends State<LoanApplication> {
       },
      controller: amountController,
      keyboardType: TextInputType.number,
+     textInputAction: TextInputAction.done,
       cursorColor: Colors.green,
       decoration: InputDecoration(
         hintText: '',
@@ -143,7 +145,7 @@ class _LoanApplicationState extends State<LoanApplication> {
             ],
           ),
           clientContainer("Loan Duration", "One Week", 15),
-          clientContainer("20% interest",
+          clientContainer("Loan + 20% interest",
               getAmountWithIntrest(amountController.text.trim()).toString(), 25),
           TextButton(
               onPressed: ()async {

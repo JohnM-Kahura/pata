@@ -153,7 +153,7 @@ class _LoanApplicationState extends State<LoanApplication> {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please Fill The Amount You want to borrow'),backgroundColor:Colors.red));
                 }
                 var response=await uploadLoanRequest(amountController.text.trim(), getAmountWithIntrest(amountController.text.trim()).toString());
-               if(response==0){
+               if(response==0&&amountController.text.trim().isNotEmpty){
       
                 Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => const LoanStatus()));

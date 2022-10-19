@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-Container customTextFeild(String hintText ,TextEditingController controller) {
+Container customTextFeild(String hintText ,TextEditingController controller,TextInputType keyboardType){
   return Container(
     margin: const EdgeInsets.all(10),
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(15)),
     child: TextFormField(
+      keyboardType:keyboardType ,
       validator: (value){
         if(value!.isEmpty){
               return "$hintText field Cannot be empty";

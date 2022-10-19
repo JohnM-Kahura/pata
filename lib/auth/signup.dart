@@ -68,8 +68,8 @@ class _SignUpState extends State<SignUp> {
                     fontWeight: FontWeight.w700),
               ),
               // signUpFeild('Full Name', fullnameContorller),
-              signUpFeild('Email', emailController),
-              signUpFeild('Password', passwordController),
+              signUpFeild('Email', emailController,TextInputType.emailAddress),
+              signUpFeild('Password', passwordController,TextInputType.text),
               
               Column(
                 children: [
@@ -148,7 +148,7 @@ ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     );
   }
 
-  Column signUpFeild(String title, TextEditingController controller) {
+  Column signUpFeild(String title, TextEditingController controller,TextInputType keyboardType ){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -162,7 +162,7 @@ ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             ),
           ),
         ),
-        customTextFeild('', controller)
+        customTextFeild('', controller,keyboardType)
       ],
     );
   }

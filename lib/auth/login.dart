@@ -194,8 +194,8 @@ class _LoginState extends State<Login> {
                       fontWeight: FontWeight.w700,
                       fontSize: 22),
                 ),
-                customTextFeild("Email", emailController),
-                customTextFeild("password", passwordController),
+                customTextFeild("Email", emailController,TextInputType.emailAddress),
+                customTextFeild("password", passwordController,TextInputType.text),
               ],
             ),
           )

@@ -61,7 +61,7 @@ class ForgotPassword extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.green),
                 ),
-                child: customTextFeild('Email', emailController),
+                child: customTextFeild('Email', emailController,TextInputType.text),
               ),
               TextButton(
                   onPressed: () async {

@@ -96,8 +96,9 @@ class _CameraPageState extends State<CameraPage> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextButton(
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const StudentIDUpload()));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //     builder: (context) => const StudentIDUpload()));
+                      Navigator.of(context).pop();
                     },
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.resolveWith(

@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pata/pages/LoanApplication/loan_application.dart';
 import 'package:pata/pages/camera/camera_page.dart';
 import 'package:pata/pages/LoanApplication/national_id_upload.dart';
 import 'package:pata/widgets/custom_button.dart';
@@ -57,7 +58,7 @@ class _ItemUploadState extends State<ItemUpload> {
               TextButton(
                   onPressed: ()async{
                      Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>const NationalIDUpload()));
+                      builder: (context) =>const LoanApplication()));
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith(

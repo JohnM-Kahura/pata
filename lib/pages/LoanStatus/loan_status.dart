@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pata/pages/LoanApplication/item_upload.dart';
-import 'package:pata/pages/LoanApplication/loan_appeal.dart';
 import 'package:pata/pages/LoanApplication/additional_info.dart';
 import 'package:pata/auth/login.dart';
 import 'package:pata/widgets/custom_container.dart';
@@ -102,11 +101,21 @@ class _LoanStatusState extends State<LoanStatus> {
                         children: [
                           TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoanAppeal()));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content: Text(
+                                    'Coming Soon...Please Visit our Offices for you  to Appeal a Loan',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                backgroundColor: Colors.green,),);
                               },
+                              // onPressed: () {
+                              //   Navigator.of(context).pushReplacement(
+                              //       MaterialPageRoute(
+                              //           builder: (context) =>
+                              //               const ItemUpload()));
+                              // },
+                              
                               style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.resolveWith(
@@ -218,10 +227,18 @@ class _LoanStatusState extends State<LoanStatus> {
                         children: [
                           TextButton(
                               onPressed: () {
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoanAppeal()));
+                                // Navigator.of(context).pushReplacement(
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             const ItemUpload()));
+
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content: Text(
+                                    'Coming Soon...Please Visit our Offices for you to Appeal a  Loan',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                backgroundColor: Colors.green,),);
                               },
                               style: ButtonStyle(
                                   backgroundColor:
@@ -345,8 +362,7 @@ class CustomDrawer extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => const LoanStatus()));
+              
             },
             child: ListTile(
               title: Text(
@@ -359,8 +375,14 @@ class CustomDrawer extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.of(context).pop();
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const LoanAppeal()));
+             ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content: Text(
+                                    'Coming Soon...Please Visit our Offices for you to Appeal a Loan',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                backgroundColor: Colors.green,),);
+                            
             },
             child: ListTile(
               title: Text(
